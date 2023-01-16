@@ -1,10 +1,10 @@
 # Site name
-TYPO3__DB__Connections__Default__dbname="PREPARE_dbname"
-TYPO3__DB__Connections__Default__driver="PREPARE_driver"
-TYPO3__DB__Connections__Default__host="PREPARE_host"
-TYPO3__DB__Connections__Default__password="PREPARE_password"
-TYPO3__DB__Connections__Default__port="PREPARE_port"
-TYPO3__DB__Connections__Default__user="PREPARE_user"
+TYPO3__DB__Connections__Default__dbname="PREPARE_db_name"
+TYPO3__DB__Connections__Default__driver="PREPARE_db_driver"
+TYPO3__DB__Connections__Default__host="PREPARE_db_host"
+TYPO3__DB__Connections__Default__password="PREPARE_db_password"
+TYPO3__DB__Connections__Default__port="PREPARE_db_port"
+TYPO3__DB__Connections__Default__user="PREPARE_db_user"
 
 TYPO3__SYS__sitename="PREPARE_sitename"
 
@@ -25,7 +25,7 @@ TYPO3__BE__adminOnly="0"
 TYPO3__FE__debug=0
 TYPO3__BE__debug=0
 TYPO3__SYS__devIPmask="*"
-TYPO3__SYS__trustedHostsPattern="PREPARE_sitename"
+TYPO3__SYS__trustedHostsPattern="PREPARE_trustedHostsPattern"
 TYPO3__SYS__displayErrors=0
 
 # Mail
