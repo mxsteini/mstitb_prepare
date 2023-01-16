@@ -15,6 +15,9 @@ function checkTools() {
   checkTool 'cat'
   CAT=$(which cat)
 
+  checkTool 'hexdump'
+  HEXDUMP=$(which hexdump)
+
   checkTool 'curl'
   CURL=$(which curl)
 }
@@ -33,7 +36,7 @@ function insertVariables() {
   done
 }
 
-function createStructur() {
+function createStructure() {
   echo ${PREPARE[PORJECT_PATH]}
   cd ${PREPARE[PORJECT_PATH]}
   mkdir -p stage
@@ -105,4 +108,4 @@ declare -A PREPARE
 
 source ./setup.sh
 
-createStructur
+createStructure

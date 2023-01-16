@@ -15,7 +15,7 @@ TYPO3__SYS__sitename="PREPARE_sitename"
 
 # Secrets
 #TYPO3__HTTP__verify="false"
-TYPO3__SYS__encryptionKey="PREPARE_sitename"
+TYPO3__SYS__encryptionKey="PREPARE_encryptionKey"
 TYPO3__BE__installToolPassword="PREPARE_installToolPassword" # joh316
 
 # optional values
