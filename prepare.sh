@@ -29,7 +29,7 @@ function checkTool() {
 
 function insertVariables() {
   for key in "${!PREPARE[@]}"; do
-    sed -i -e 's/'${PREPARE[${key}]}'/PREPARE_'${key}'/g' $1
+    sed -i -e 's#PREPARE_'${key}'#'${PREPARE[${key}]}'#g' $1
   done
 }
 
@@ -46,7 +46,8 @@ function createStructur() {
   ln -s release-3 next
   ln -s release-2 current
   ln -s release-1 previous
-  curl https://raw.githubusercontent.com/mxsteini/mstitb_prepare/main/live/dotEnv.sh --output current/.env
+#  curl https://raw.githubusercontent.com/mxsteini/mstitb_prepare/main/live/dotEnv.sh --output current/.env
+  cp /home/mst/Projekte/itb/mstitb_prepare/live/dotEnv.sh current/.env
   insertVariables current/.env
   popd
   popd
