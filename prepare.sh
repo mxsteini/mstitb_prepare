@@ -80,27 +80,19 @@ EOF
 }
 
 function createHtPassword() {
-  ${HTPASSWD} -b -c ${PROJECT}/.htpasswd ${HT_USER} ${HT_PASS}
+  ${HTPASSWD} -b -c ${PREPARE[PORJECT_PATH]}/.htpasswd ${PREPARE[HT_USER]} ${PREPARE[HT_PASS]}
 }
 
 function createCiKey() {
   ${SSH_KEYGEN} -f ~/.ssh/id_rsa_gitlab
-  cat ~/.ssh/id_rsa_gitlab.pub >>~/.ssh/authorized_keys
+  cat ~/.ssh/id_rsa_gitlab.pub >> ~/.ssh/authorized_keys
   cat ~/.ssh/id_rsa_gitlab
-}
-
-function fetchDotEnv() {
-  ${CURL} https://raw.githubusercontent.com/mxsteini/mstitb_prepare/main/live/dotEnv.sh
 }
 
 function exit_abnormal() { # Function: Exit with error.
   echo exit_abnormal
   usage
   exit 1
-}
-
-function checkVariable() {
-  echo $1
 }
 
 checkTools
@@ -110,3 +102,5 @@ declare -A PREPARE
 source ./setup.sh
 
 createStructure
+createHtaccess
+createHtPassword
