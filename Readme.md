@@ -7,7 +7,7 @@ fetch this scripts
 
 ```bash
 curl https://raw.githubusercontent.com/mxsteini/mstitb_prepare/main/prepare.sh --output prepare.sh
-curl https://github.com/mxsteini/mstitb_prepare/blob/main/setup.sh.dist --output setup.sh
+curl https://raw.githubusercontent.com/mxsteini/mstitb_prepare/main/setup.sh.dist --output setup.sh
 chmod +x prepare.sh
 chmod +x setup.sh
 ```
