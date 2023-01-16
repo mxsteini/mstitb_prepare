@@ -53,6 +53,7 @@ function createStructure() {
   cp /home/mst/Projekte/itb/mstitb_prepare/live/dotEnv.sh current/.env
   insertVariables current/.env
   popd
+  cp /home/mst/Projekte/itb/mstitb_prepare/live/LocalConfiguration.php shared/configuration
   popd
   cp -ra stage production
 }
