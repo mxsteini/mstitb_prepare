@@ -1,15 +1,26 @@
 PREPARE[PROJECT]=""
-PREPARE[db_name]=""
-PREPARE[db_driver]=""
-PREPARE[db_host]=""
-PREPARE[db_password]=""
-PREPARE[db_port]=""
-PREPARE[db_user]=""
-PREPARE[sitename]=""
-PREPARE[trustedHostsPattern]=""
 PREPARE[URL]=""
 PREPARE[HT_USER]=""
 PREPARE[HT_PASS]=""
 
+PREPARE[live_db_name]=""
+PREPARE[live_db_driver]=""
+PREPARE[live_db_host]=""
+PREPARE[live_db_password]=""
+PREPARE[live_db_port]=""
+PREPARE[live_db_user]=""
+PREPARE[live_sitename]=""
+PREPARE[live_trustedHostsPattern]=""
+PREPARE[live_encryptionKey]=$(hexdump -vn32 -e'4/8 "%08X" 1 "\n"' /dev/urandom)
+
+PREPARE[stage_db_name]=""
+PREPARE[stage_db_driver]=""
+PREPARE[stage_db_host]=""
+PREPARE[stage_db_password]=""
+PREPARE[stage_db_port]=""
+PREPARE[stage_db_user]=""
+PREPARE[stage_sitename]=${PREPARE[live_sitename]}
+PREPARE[stage_trustedHostsPattern]=""${PREPARE[live_trustedHostsPattern]}
+PREPARE[stage_encryptionKey]=$(hexdump -vn32 -e'4/8 "%08X" 1 "\n"' /dev/urandom)
+
 PREPARE[PORJECT_PATH]=$(pwd)
-PREPARE[encryptionKey]=$(hexdump -vn32 -e'4/8 "%08X" 1 "\n"' /dev/urandom)
