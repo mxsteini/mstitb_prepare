@@ -22,5 +22,5 @@ PREPARE[stage_db_user]=""
 PREPARE[stage_sitename]=${PREPARE[live_sitename]}
 PREPARE[stage_trustedHostsPattern]=""${PREPARE[live_trustedHostsPattern]}
 PREPARE[stage_encryptionKey]=$(hexdump -vn32 -e'4/8 "%08X" 1 "\n"' /dev/urandom)
-&
+
 PREPARE[PORJECT_PATH]=$(pwd)

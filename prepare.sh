@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -o errexit
 
 usage() {
   echo "$0 usage:" && grep " .)\ #" $0
