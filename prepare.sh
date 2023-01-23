@@ -6,30 +6,6 @@ usage() {
   exit 0
 }
 
-function checkTools() {
-  checkTool 'ssh-keygen'
-  SSH_KEYGEN=$(which -v ssh-keygen)
-
-  checkTool 'htpasswd'
-  HTPASSWD=$(which htpasswd)
-
-  checkTool 'cat'
-  CAT=$(which cat)
-
-  checkTool 'hexdump'
-  HEXDUMP=$(which hexdump)
-
-  checkTool 'curl'
-  CURL=$(which curl)
-}
-
-function checkTool() {
-  if ! command -v $1 &>/dev/null; then
-    echo "$1 could not be found"
-    exit_abnormal
-  fi
-  echo $1 found
-}
 
 function insertVariables() {
   for key in "${!PREPARE[@]}"; do
@@ -65,7 +41,7 @@ function createStructure() {
 }
 
 function createHtaccess() {
-  ${CAT} >.htaccess <<EOF
+  cat >.htaccess <<EOF
 <If "(%{HTTP_HOST} != '${URL}') && (%{HTTP_HOST} != 'www.${URL}')">
  AuthUserFile ${PREPARE[PORJECT_PATH]}/.htpasswd
  AuthName EnterPassword
@@ -86,11 +62,11 @@ EOF
 }
 
 function createHtPassword() {
-  ${HTPASSWD} -b -c ${PREPARE[PORJECT_PATH]}/.htpasswd ${PREPARE[HT_USER]} ${PREPARE[HT_PASS]}
+  htpasswd -b -c ${PREPARE[PORJECT_PATH]}/.htpasswd ${PREPARE[HT_USER]} ${PREPARE[HT_PASS]}
 }
 
 function createCiKey() {
-  ${SSH_KEYGEN} -f ~/.ssh/id_rsa_gitlab
+  ssh-keygen -f ~/.ssh/id_rsa_gitlab
   cat ~/.ssh/id_rsa_gitlab.pub >> ~/.ssh/authorized_keys
   cat ~/.ssh/id_rsa_gitlab
 }
@@ -100,8 +76,6 @@ function exit_abnormal() { # Function: Exit with error.
   usage
   exit 1
 }
-
-checkTools
 
 declare -A PREPARE
 
