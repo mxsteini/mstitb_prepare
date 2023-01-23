@@ -11,7 +11,7 @@ PREPARE[live_db_port]=""
 PREPARE[live_db_user]=""
 PREPARE[live_sitename]=""
 PREPARE[live_trustedHostsPattern]=""
-PREPARE[live_encryptionKey]=$(hexdump -vn32 -e'4/8 "%08X" 1 "\n"' /dev/urandom)
+PREPARE[live_encryptionKey]=$(openssl rand -hex 32)
 
 PREPARE[stage_db_name]=""
 PREPARE[stage_db_driver]=""
@@ -21,6 +21,6 @@ PREPARE[stage_db_port]=""
 PREPARE[stage_db_user]=""
 PREPARE[stage_sitename]=${PREPARE[live_sitename]}
 PREPARE[stage_trustedHostsPattern]=""${PREPARE[live_trustedHostsPattern]}
-PREPARE[stage_encryptionKey]=$(hexdump -vn32 -e'4/8 "%08X" 1 "\n"' /dev/urandom)
+PREPARE[stage_encryptionKey]=$(openssl rand -hex 32)
 
 PREPARE[PORJECT_PATH]=$(pwd)

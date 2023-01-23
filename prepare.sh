@@ -8,9 +8,13 @@ usage() {
 
 
 function insertVariables() {
-  for key in "${!PREPARE[@]}"; do
-    sed -i -e 's#PREPARE_'${key}'#'${PREPARE[${key}]}'#g' $1
-  done
+    for key in "${!PREPARE[@]}"; do
+        DATA=${PREPARE[${key}]}
+        if [[ ! -z ${DATA} ]]; then
+            ESCAPED_REPLACE=$(printf '%s\n' "$DATA" | sed -e 's/[\/&]/\\&/g')
+            sed -i -e "s/PREPARE_${key}/${ESCAPED_REPLACE}/g" $1
+        fi
+    done
 }
 
 function createStructure() {
