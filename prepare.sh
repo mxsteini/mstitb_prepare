@@ -31,7 +31,7 @@ function createStructure() {
   ln -s release-2 current
   ln -s release-1 previous
   popd
-  curl https://raw.githubusercontent.com/mxsteini/mstitb_prepare/main/live/LocalConfiguration.php --output shared/configuration/LocalConfiguration.php
+  curl https://raw.githubusercontent.com/mxsteini/mstitb_prepare/main/live/settings.php --output shared/configuration/settings.php
   popd
   cp -ra stage production
 
