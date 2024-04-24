@@ -23,7 +23,7 @@ function createStructure() {
   mkdir -p stage
   pushd stage
   mkdir -p {releases,shared}
-  mkdir -p releases/{release-1,release-2,release-3}
+  mkdir -p releases/{release-1,release-2,release-3}/public
   mkdir -p shared/{configuration,public,var}
   mkdir -p shared/public/{fileadmin,uploads}
   pushd releases
