@@ -17,9 +17,9 @@ PREPARE[stage_db_name]=""
 PREPARE[stage_db_password]=""
 PREPARE[stage_db_user]=""
 PREPARE[stage_db_driver]="${PREPARE[live_db_driver]}"
-PREPARE[stage_db_host]="${PREPARE[stage_db_host]}"
+PREPARE[stage_db_host]="${PREPARE[live_db_host]}"
 PREPARE[stage_db_port]="${PREPARE[live_sitename]}"
-PREPARE[stage_sitename]=${PREPARE[stage_db_port]}
+PREPARE[stage_sitename]=${PREPARE[live_db_port]}
 PREPARE[stage_trustedHostsPattern]=""${PREPARE[live_trustedHlive_sitenameostsPattern]}
 PREPARE[stage_encryptionKey]=$(openssl rand -hex 32)
 
